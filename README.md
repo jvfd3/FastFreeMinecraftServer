@@ -76,6 +76,15 @@ Methods that I have thought of:
 
 Should I use Google Forms? 🤔
 
+### Youtube
+
+- [TechnoTim](https://youtu.be/_ypAmCcIlBE) - [Notes](https://technotim.live/posts/pterodactyl-game-server/)
+  - [Pterodactyl Panel](https://pterodactyl.io/)
+    - [Panel](https://github.com/pterodactyl/panel)
+    - [Eggs](https://github.com/parkervcp/eggs)
+      - [CurseForge](https://github.com/parkervcp/eggs/tree/master/game_eggs/minecraft/java/curseforge)
+  - [Docker](https://www.docker.com/)
+
 ### GitHub
 
 1. [mchum](https://github.com/mchum/oracle-minecraft/tree/main)
