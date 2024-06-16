@@ -146,3 +146,8 @@ Some ways that I created my own Minecraft server before:
 
 When I first created a free Minecraft server, I had to wait for a long time at [Aternos](https://aternos.org/)' queue. They had anti-afk policies and other stuff that bothered me.
 ...
+
+## Interesting Links
+
+- [OCI Starter](https://www.ocistarter.com/)
+- [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cliconcepts.htm)
