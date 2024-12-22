@@ -25,3 +25,8 @@
 > Out of capacity for shape VM.Standard.A1.Flex in availability domain AD-1. Create the instance in a different availability domain or try again later. If you specified a fault domain, try creating the instance without specifying a fault domain. If that doesn’t work, please try again later. Learn more about host capacity.
 
 - [Solution](https://bestofphp.com/repo/hitrov-oci-arm-host-capacity)
+
+## Docker way on Windows
+
+- Install via .exe (?)
+  - Needs WSL2

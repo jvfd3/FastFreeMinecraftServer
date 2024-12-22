@@ -114,6 +114,7 @@ Should I use Google Forms? 🤔
    - Installs Minecraft Server to auto restart
    - How to run server without the GUI (nohup)
    - Focuses on speed
+8. [itzg](https://github.com/itzg/docker-minecraft-server/tree/master)
 
 ## Processes to be automated
 
