@@ -152,3 +152,86 @@ When I first created a free Minecraft server, I had to wait for a long time at [
 
 - [OCI Starter](https://www.ocistarter.com/)
 - [OCI CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cliconcepts.htm)
+
+## Running commands
+
+### SSH
+
+```bash
+ssh -i B:\\GitHub\\FastFreeMinecraftServer\\Files\\Docker\\Chaves\\ssh-key-2024-12-30.key opc@64.181.188.56
+```
+
+- Deu problema de permissão no arquivo, segundo o copilot eu tive que:
+
+```bash
+$path = "B:\GitHub\FastFreeMinecraftServer\Files\Docker\Chaves\ssh-key-2024-12-30.key"
+icacls $path /inheritance:r
+icacls $path /remove "AUTORIDADE NT\Usuários autenticados"
+icacls $path /grant:r "$($env:USERNAME):(R)"
+```
+
+### Comandos internos na Oracle
+
+(segundo o GPT)
+
+```bash
+# Atualizar pacotes
+sudo dnf update -y
+
+# Instalar o Docker
+sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install -y docker-ce docker-ce-cli containerd.io
+
+# Iniciar e habilitar o Docker
+sudo systemctl start docker
+sudo systemctl enable docker
+
+# Verificar instalação
+docker --version
+```
+
+Docker compose
+
+```bash
+sudo dnf install -y docker-compose-plugin
+docker compose version
+```
+
+Instalar git
+
+```bash
+sudo dnf install -y git
+```
+
+Clonando meu repositório
+
+```bash
+git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
+cd FastFreeMinecraftServer
+```
+
+Configurando o firewall
+
+```bash
+sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
+sudo firewall-cmd --reload
+```
+
+Acessando o diretório com o Docker Compose
+
+```bash
+cd FastFreeMinecraftServer/Files/Docker
+```
+
+Adicionando o arquivo env
+
+```bash
+echo 'API_KEY=$$2a$$10$$..37caracteres.../...15caracteres...' > api_key.env
+```
+
+Rodando o Docker Compose
+
+```bash
+sudo docker compose up -d
+```
