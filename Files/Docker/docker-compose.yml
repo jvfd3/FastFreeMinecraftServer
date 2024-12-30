@@ -3,11 +3,29 @@ services:
     image: itzg/minecraft-server
     tty: true
     stdin_open: true
+    # restart: unless-stopped
+
     ports:
-      - "25565:25565"
+      - '25565:25565'
+    
     environment:
-      EULA: "TRUE"
-      MOTD: "           \u00A76O período anual retornou 🥳🎄\u00A7r\n        \u00A7lModpack:\u00A7r \u00A7kmanual\u00A7r; \u00A7lMine Version:\u00A7r ?"
+      # A CurseForge API key is required to use this feature. Go to their developer console, generate an API key, and set the environment variable CF_API_KEY. This is required for the MODPACK_PLATFORM: AUTO_CURSEFORGE feature to work.
+      CF_API_KEY: ${API_KEY}
+      CF_FORCE_REINSTALL_MODLOADER: false # (default is false): this can be set to true to force the modpack's declared modloader, such as Forge, to be reinstalled. This is useful if some of the modloader's files become corrupted.
+
+      MODPACK_PLATFORM: AUTO_CURSEFORGE
+      
+      # CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/deb/files/6031519
+      # CF_SLUG: deb
+      # CF_FILE_ID: '6031519'
+
+      CF_PAGE_URL: https://www.curseforge.com/minecraft/modpacks/deb
+      CF_MODPACK_ZIP: /modpacks/Dragões e Bocós.zip
+
+
+      EULA: 'TRUE'
+      MEMORY: 4G
+      MOTD: '           \u00A76O período anual retornou 🥳🎄\u00A7r\n        \u00A7lModpack:\u00A7r \u00A7kmanual\u00A7r; \u00A7lMine Version:\u00A7r ?'
       # MOTD: |
       #   &6O período anual retornou 🥳🎄&r
       #   &lModpack:&r &kmanual&r; &lMine Version:&r ?
@@ -17,14 +35,16 @@ services:
       SPAWN_ANIMALS: true
       SPAWN_MONSTERS: true
       SPAWN_NPCS: true
-      SEED: "lost"
-      LEVEL: "20241222"
+      SEED: 'lost'
+      LEVEL: '20241222'
       ONLINE_MODE: FALSE
       ALLOW_FLIGHT: TRUE
-      SERVER_NAME: "FastFreeMinecraftServer"
+      SERVER_NAME: 'FastFreeMinecraftServer'
       OPS: |
         MrJvfd3
-      ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg"
+      ICON: 'https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg'
     volumes:
       # attach the relative directory 'data' to the container's /data path
       - ./data:/data
+      # - ./downloads:/downloads
+      - ./modpacks:/modpacks:ro
