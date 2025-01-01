@@ -11,15 +11,15 @@ services:
     environment:
       MODPACK_PLATFORM: AUTO_CURSEFORGE
       CF_API_KEY: ${API_KEY} # A CurseForge API key is required to use this feature. Go to their developer console, generate an API key, and set the environment variable CF_API_KEY. This is required for the MODPACK_PLATFORM: AUTO_CURSEFORGE feature to work.
-      CF_FILE_ID: '6031519'
-      CF_SLUG: deb
+      CF_FILE_ID: 6041452 # 20241231 - Serverpack
+      CF_SLUG: 'deb'
 
       MEMORY: 4G
       MOTD: '\u00A76O período anual retornou 🥳🎄\u00A7r\n        \u00A7lModpack:\u00A7r 20241231\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1'
       SEED: 'lost'
-      LEVEL: '20241222'
+      LEVEL: '20241231'
       SERVER_NAME: 'FastFreeMinecraftServer'
-      OPS: MrJvfd3
+      OPS: 'MrJvfd3'
       ICON: 'https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg'
 
       EULA: TRUE

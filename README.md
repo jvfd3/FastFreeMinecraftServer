@@ -206,6 +206,7 @@ sudo dnf install -y git
 Clonando meu repositório
 
 ```bash
+rm -rf FastFreeMinecraftServer
 git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
 cd FastFreeMinecraftServer
 ```
