@@ -1,5 +1,0 @@
-
-[General]
-	#This variable is responsible for give book on startup or not. Default: true  
-	give_book_on_startup = true
-
