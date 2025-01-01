@@ -9,10 +9,14 @@ services:
       - '25565:25565'
     
     environment:
+      EULA: 'TRUE'
       MODPACK_PLATFORM: AUTO_CURSEFORGE
       CF_API_KEY: ${API_KEY} # A CurseForge API key is required to use this feature. Go to their developer console, generate an API key, and set the environment variable CF_API_KEY. This is required for the MODPACK_PLATFORM: AUTO_CURSEFORGE feature to work.
-      CF_FILE_ID: 6041452 # 20241231 - Serverpack
-      # CF_FILE_ID: 6041450 # 20241231 - Client
+      # CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/deb'
+      # CF_MODPACK_ZIP: '/modpacks/DeB-Server-20241231.zip'
+      # CF_MODPACK_ZIP: '/modpacks/DeB-Client-20250101.zip'
+      # CF_FILE_ID: 6041452 # 20241231 - Serverpack
+      CF_FILE_ID: 6041450 # 20241231 - Client
       CF_SLUG: 'deb'
 
       MEMORY: 4G
@@ -23,7 +27,6 @@ services:
       OPS: 'MrJvfd3'
       ICON: 'https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg'
 
-      EULA: TRUE
       SPAWN_NPCS: TRUE
       ALLOW_FLIGHT: TRUE
       ALLOW_NETHER: TRUE
@@ -35,3 +38,4 @@ services:
       CF_FORCE_REINSTALL_MODLOADER: FALSE # (default is false): this can be set to true to force the modpack's declared modloader, such as Forge, to be reinstalled. This is useful if some of the modloader's files become corrupted.
     volumes:
       - ./data:/data # attach the relative directory 'data' to the container's /data path
+      - ./modpacks:/modpacks:ro
