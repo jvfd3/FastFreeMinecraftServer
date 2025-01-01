@@ -16,11 +16,11 @@ services:
       # CF_MODPACK_ZIP: '/modpacks/DeB-Server-20241231.zip'
       # CF_MODPACK_ZIP: '/modpacks/DeB-Client-20250101.zip'
       # CF_FILE_ID: 6041452 # 20241231 - Serverpack
-      CF_FILE_ID: 6041450 # 20241231 - Client
+      CF_FILE_ID: 6042392 # 20250101 - Client
       CF_SLUG: 'deb'
 
       MEMORY: 4G
-      MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n        \u00A7lModpack:\u00A7r 20241231\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1"
+      MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n\u00A7lModpack:\u00A7r 20241231\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1"
       SEED: 'lost'
       LEVEL: '20241231'
       SERVER_NAME: 'FastFreeMinecraftServer'
