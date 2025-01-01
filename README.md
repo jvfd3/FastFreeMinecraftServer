@@ -233,5 +233,5 @@ echo 'API_KEY=$$2a$$10$$..37caracteres.../...15caracteres...' > api_key.env
 Rodando o Docker Compose
 
 ```bash
-sudo docker compose up -d
+sudo docker compose --env-file ./api_key.env up -d
 ```
