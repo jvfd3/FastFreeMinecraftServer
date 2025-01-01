@@ -172,15 +172,24 @@ icacls $path /grant:r "$($env:USERNAME):(R)"
 
 ### Comandos internos na Oracle
 
+Configurando o firewall
+
+```bash
+sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
+sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
+sudo firewall-cmd --reload
+```
+
 (segundo o GPT)
+
 
 ```bash
 # Atualizar pacotes
 sudo dnf update -y
 
-# Instalar o Docker
+# Instalar o Docker, Docker Composer e Git
 sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-sudo dnf install -y docker-ce docker-ce-cli containerd.io
+sudo dnf install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin git
 
 # Iniciar e habilitar o Docker
 sudo systemctl start docker
@@ -188,19 +197,7 @@ sudo systemctl enable docker
 
 # Verificar instalação
 docker --version
-```
-
-Docker compose
-
-```bash
-sudo dnf install -y docker-compose-plugin
 docker compose version
-```
-
-Instalar git
-
-```bash
-sudo dnf install -y git
 ```
 
 Clonando meu repositório
@@ -208,15 +205,6 @@ Clonando meu repositório
 ```bash
 rm -rf FastFreeMinecraftServer
 git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
-cd FastFreeMinecraftServer
-```
-
-Configurando o firewall
-
-```bash
-sudo firewall-cmd --permanent --zone=public --add-port=25565/tcp
-sudo firewall-cmd --permanent --zone=public --add-port=25565/udp
-sudo firewall-cmd --reload
 ```
 
 Acessando o diretório com o Docker Compose
