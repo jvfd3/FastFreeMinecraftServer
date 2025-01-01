@@ -182,7 +182,6 @@ sudo firewall-cmd --reload
 
 (segundo o GPT)
 
-
 ```bash
 # Atualizar pacotes
 sudo dnf update -y
@@ -203,8 +202,7 @@ docker compose version
 Clonando meu repositório
 
 ```bash
-rm -rf FastFreeMinecraftServer
-git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
+rm -rf FastFreeMinecraftServer; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
 ```
 
 Acessando o diretório com o Docker Compose
