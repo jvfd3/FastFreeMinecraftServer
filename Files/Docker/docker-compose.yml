@@ -14,7 +14,7 @@ services:
       CF_API_KEY: ${API_KEY} # A CurseForge API key is required to use this feature. Go to their developer console, generate an API key, and set the environment variable CF_API_KEY. This is required for the MODPACK_PLATFORM: AUTO_CURSEFORGE feature to work.
       # CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/deb'
       # CF_FILE_ID: 6042392 # 20250101 - Client
-      CF_FILE_ID: 6046147 # 20250102 - Client
+      CF_FILE_ID: 6046263 # 20250102 - Client
       CF_SLUG: 'deb'
 
       MEMORY: 4G
