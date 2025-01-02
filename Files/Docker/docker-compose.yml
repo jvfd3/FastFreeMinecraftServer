@@ -17,7 +17,7 @@ services:
       CF_FILE_ID: 6046263 # 20250102 - Client
       CF_SLUG: 'deb'
 
-      MEMORY: 4G
+      MEMORY: 8G
       MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n\u00A7lModpack:\u00A7r 20241231\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1"
       SEED: 'lost'
       LEVEL: '20241231'
@@ -35,5 +35,5 @@ services:
       ANNOUNCE_PLAYER_ACHIEVEMENTS: TRUE
       CF_FORCE_REINSTALL_MODLOADER: FALSE # (default is false): this can be set to true to force the modpack's declared modloader, such as Forge, to be reinstalled. This is useful if some of the modloader's files become corrupted.
     volumes:
-      - ./data:/data # attach the relative directory 'data' to the container's /data path
-      - ./modpacks:/modpacks:ro
+      - ./data:../../../serverfiles # attach the relative directory 'data' to the container's /data path
+      # - ./modpacks:/modpacks:ro
