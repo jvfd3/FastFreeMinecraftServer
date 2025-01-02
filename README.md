@@ -222,3 +222,14 @@ Rodando o Docker Compose
 ```bash
 sudo docker compose --env-file ./api_key.env up -d
 ```
+
+### Atualizando serverpack
+
+```bash
+ssh -i B:\\GitHub\\FastFreeMinecraftServer\\Files\\Docker\\Chaves\\ssh-key-2024-12-30.key opc@64.181.188.56;
+rm -rf FastFreeMinecraftServer;
+git clone https://github.com/jvfd3/FastFreeMinecraftServer.git;
+cd FastFreeMinecraftServer/Files/Docker;
+echo 'API_KEY=$$2a$$10$$..37caracteres.../...15caracteres...' > api_key.env;
+sudo docker compose --env-file ./api_key.env up -d;
+```
