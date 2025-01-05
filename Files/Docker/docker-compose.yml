@@ -13,8 +13,10 @@ services:
       MODPACK_PLATFORM: AUTO_CURSEFORGE
       CF_API_KEY: ${API_KEY} # A CurseForge API key is required to use this feature. Go to their developer console, generate an API key, and set the environment variable CF_API_KEY. This is required for the MODPACK_PLATFORM: AUTO_CURSEFORGE feature to work.
       # CF_PAGE_URL: 'https://www.curseforge.com/minecraft/modpacks/deb'
-      # CF_FILE_ID: 6042392 # 20250101 - Client
-      CF_FILE_ID: 6046263 # 20250102 - Client
+      # CF_FILE_ID: 6042392 # 20250101
+      # CF_FILE_ID: 6046263 # 20250102
+      # CF_FILE_ID: 6056528 # 20250105
+      CF_FILE_ID: 6056829 # 20250105 - Removendo Chisel
       CF_SLUG: 'deb'
 
       MEMORY: 8G
