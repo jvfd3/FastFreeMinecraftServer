@@ -20,7 +20,7 @@ services:
       CF_SLUG: 'deb'
 
       MEMORY: 8G
-      MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n\u00A7lModpack:\u00A7r 20241231\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1"
+      MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n\u00A7lModpack:\u00A7r 20250105\u00A7r; \u00A7lMine Version:\u00A7r 1.20.1"
       SEED: 'lost'
       LEVEL: '20241231'
       SERVER_NAME: 'FastFreeMinecraftServer'
