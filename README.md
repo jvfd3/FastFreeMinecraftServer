@@ -233,3 +233,8 @@ git clone https://github.com/jvfd3/FastFreeMinecraftServer.git
 cd FastFreeMinecraftServer/Files/Docker
 sudo docker compose --env-file ./api_key.env up -d
 ```
+
+## To-Do
+
+- [ ] Discord bot to notify server status
+- [ ] Display server playing time [[link]](https://www.reddit.com/r/MinecraftCommands/comments/114rvog/how_do_i_set_a_list_scoreboard_to_display_time/)
