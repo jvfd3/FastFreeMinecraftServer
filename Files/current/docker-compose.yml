@@ -23,7 +23,6 @@ services:
       SERVER_NAME: "FastFreeMinecraftServer"
       OPS: |-
         tamarutaca16
-        MrJvfd3
       ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Current/ServerLogo.png"
       DIFFICULTY: "3"
 
