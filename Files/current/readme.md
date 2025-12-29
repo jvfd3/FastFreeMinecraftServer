@@ -165,6 +165,28 @@
 - Compartment: ocid1.tenancy.oc1..aaaaaaaa3vzjiz7354idew4yjfbcjqah3bywaz2p2hrhvchdfpcfaw5qkmjq
 - Terraform Version: 1.5.x
 
+### Configurando Ingress Rules
+
+- Instances>Networking>subnet>security>Default Security List>Security Rules>Add Ingress Rules
+  - Ingress Rule 1
+    - [ ] Stateless **(default)**
+    - Source Type: CIDR **(default)**
+    - Source CIDR: 0.0.0.0/0
+    - IP Protocol: TCP **(default)**
+    - Source Port Range: None **(default)**
+    - Destination Port Range: 25565
+    - Description: None **(default)**
+  - **Another Ingress Rule**
+  - Ingress Rule 2
+    - [ ] Stateless **(default)**
+    - Source Type: CIDR **(default)**
+    - Source CIDR: 0.0.0.0/0
+    - IP Protocol: UDP **(default)**
+    - Source Port Range: None **(default)**
+    - Destination Port Range: 25565
+    - Description: None **(default)**
+  - **Add Ingress Rules**
+
 ## Acessando via SSH
 
 - Mova as chaves para a pasta .\20251227\
