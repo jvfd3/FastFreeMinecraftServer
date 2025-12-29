@@ -16,13 +16,15 @@ services:
       # CF_FILE_ID: 7320992 # 1.29.0 - 20251211
       # CF_SLUG: "craftoria"
 
-      MEMORY: 8G
+      MEMORY: 12G
       MOTD: "\u00A76O período anual retornou 🥳🎄\u00A7r\n\u00A7lModpack:\u00A7r 1.29.0\u00A7r; \u00A7lMine Version:\u00A7r 1.21.1"
       SEED: "lost"
-      LEVEL: "20251227"
+      LEVEL: "20251229"
       SERVER_NAME: "FastFreeMinecraftServer"
-      OPS: "tamarutaca16"
-      ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg"
+      OPS: |-
+        tamarutaca16 MrJvfd3
+      ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Current/ServerLogo.png"
+      DIFFICULTY: "3"
 
       SPAWN_NPCS: TRUE
       ALLOW_FLIGHT: TRUE

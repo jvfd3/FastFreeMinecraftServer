@@ -11,7 +11,7 @@
       - Trocar os três `$` por `$$` no .env
 - **Docker**
   - Instalação do Docker Desktop no Windows
-  - Atualizar `docker-compose.yml` com nova versão do modpack
+  - [Atualizar](https://setupmc.com/java-server/) `docker-compose.yml` com nova versão do modpack
   - Ligando docker compose
     1. `cd .\20251227\`
     2. `docker compose up`
@@ -181,5 +181,7 @@
 
 ## Ligando o Servidor Minecraft na Instância
 
+- Instalando o git na Oracle Linux 9:
+  - `sudo dnf install git -y`
 - clone do repositório
-  - `git clone
+  - `git clone https://github.com/jvfd3/FastFreeMinecraftServer.git`
