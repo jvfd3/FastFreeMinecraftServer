@@ -26,7 +26,8 @@ services:
       ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg"
       # ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/current/ServerLogo.png"
       DIFFICULTY: "3"
-
+      TZ: "America/Sao_Paulo"
+      MAX_TICK_TIME: "120000"
       ALLOW_FLIGHT: TRUE
       ONLINE_MODE: FALSE
       ANNOUNCE_PLAYER_ACHIEVEMENTS: TRUE
