@@ -26,13 +26,8 @@ services:
       ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Current/ServerLogo.png"
       DIFFICULTY: "3"
 
-      SPAWN_NPCS: TRUE
       ALLOW_FLIGHT: TRUE
-      ALLOW_NETHER: TRUE
       ONLINE_MODE: FALSE
-      SPAWN_ANIMALS: TRUE
-      SPAWN_MONSTERS: TRUE
-      GENERATE_STRUCTURES: TRUE
       ANNOUNCE_PLAYER_ACHIEVEMENTS: TRUE
       CF_FORCE_REINSTALL_MODLOADER: FALSE # (default is false): this can be set to true to force the modpack's declared modloader, such as Forge, to be reinstalled. This is useful if some of the modloader's files become corrupted.
     volumes:
