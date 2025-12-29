@@ -3,3 +3,4 @@
 *.pub
 *.key
 /Files/Docker/data
+*.pem
