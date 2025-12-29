@@ -23,7 +23,8 @@ services:
       SERVER_NAME: "FastFreeMinecraftServer"
       OPS: |-
         tamarutaca16
-      ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Current/ServerLogo.png"
+      ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/Docker/Minecraft%20Loop.jpg"
+      # ICON: "https://raw.githubusercontent.com/jvfd3/FastFreeMinecraftServer/refs/heads/main/Files/current/ServerLogo.png"
       DIFFICULTY: "3"
 
       ALLOW_FLIGHT: TRUE
