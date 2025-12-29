@@ -31,5 +31,6 @@ services:
       ANNOUNCE_PLAYER_ACHIEVEMENTS: TRUE
       CF_FORCE_REINSTALL_MODLOADER: FALSE # (default is false): this can be set to true to force the modpack's declared modloader, such as Forge, to be reinstalled. This is useful if some of the modloader's files become corrupted.
     volumes:
-      - ../../../serverfiles:/data # attach the relative directory 'data' to the container's /data path
+      ~/minecraft/serverfiles:/data:Z
+      # - ../../../serverfiles:/data # attach the relative directory 'data' to the container's /data path
       # - ./modpacks:/modpacks:ro
