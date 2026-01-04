@@ -1,0 +1,25 @@
+{
+  "instanceType": "compute",
+  "launchDetails": {
+    "compartmentId": "<OCID_COMPARTMENT>",
+    "availabilityDomain": "SA-SAOPAULO-1-AD-1",
+    "shape": "VM.Standard.A1.Flex",
+    "shapeConfig": {
+      "ocpus": 2,
+      "memoryInGBs": 24
+    },
+    "sourceDetails": {
+      "sourceType": "image",
+      "imageId": "ocid1.image.oc1.sa-saopaulo-1.aaaaaaaa6rpkhelmuwkr5fvunwcgutf6dpnsuarsbocarjixbqbti4kytwva"
+    },
+    "createVnicDetails": {
+      "subnetId": "<OCID_SUBNET>",
+      "assignPublicIp": true
+    },
+    "metadata": {
+      "ssh_authorized_keys": "ssh-ed25519 AAAA...",
+      "user_data": "<BASE64_CLOUD_INIT>"
+    },
+    "displayName": "Minecraft"
+  }
+}

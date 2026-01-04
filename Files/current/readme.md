@@ -1,5 +1,8 @@
 # Sequência
 
+- To-Do:
+  - Adicionar Initialization Script na criação da instância
+
 ## Ligar Servidor Local
 
 - **CurseForge**
@@ -20,7 +23,55 @@
 
 ### Criando Instância
 
-#### 1. Basic Information
+#### Resumo das Configurações
+
+1. Basic Information
+   - Name: Minecraft
+   - Image and Shape
+     - Image:
+       - Operating system: Canonical Ubuntu 20.04
+     - Shape: Ampere
+       - Instance Type: Virtual machine **(default)**
+       - Shape series: Ampere: Arm-based processor.
+       - Shape Name: VM.Standard.A1.Flex (Always Free-eligible) | OCPU: 2 (80 max) | Memory (GB): 24 (512 max)
+   - Advanced: Management: Initialization Script: Paste cloud-init script
+     - Cloud-init script:
+
+       ```bash
+        sudo dnf install -y git;
+        git clone https://github.com/jvfd3/FastFreeMinecraftServer.git;
+        cd FastFreeMinecraftServer/Files/current/;
+       ```
+
+2. Security
+3. Networking
+   - Primary VNIC
+     - VNIC name: VNIC-20251229-minecraft
+     - Primary Network:
+       - [x] Create new virtual cloud network
+         - New virtual cloud network name: VCN-20251229-minecraft
+       - [x] Create new public subnet **(default)**
+       - New subnet name: subnet-20251229-minecraft
+   - **Download SSH keys**
+
+---
+
+- Após provisionado:
+  - Instances>Networking>subnet>security>Default Security List>Security Rules>Add Ingress Rules:
+    - Ingress Rule 1
+      - IP Protocol: TCP
+      - Destination Port Range: 25565
+      - Source CIDR: 0.0.0.0/0
+    - Ingress Rule 2
+      - IP Protocol: UDP
+      - Source CIDR: 0.0.0.0/0
+      - Destination Port Range: 25565
+
+- **Copie o IP Público da instância para acessar via SSH**
+
+#### Completo
+
+##### 1. Basic Information
 
 - Name: **Minecraft**
 - Create in compartment: candonga (root) **(Default)**
@@ -37,30 +88,30 @@
     - Fault Domain: none **(default)**
 - Image and Shape
   - Image:
-    - Operating system: Oracle Linux 9 **(default)**
-    - Image build: 2025.11.20-0 **(default)**
+    - Operating system: Canonical Ubuntu 20.04
+    - Image build: 2025.07.23-0 **(default)**
     - Security: Shielded instance **(default)**
-- Shape: Ampere
-  - Instance Type:
-    - [x] Virtual machine: A virtual machine is an independent computing environment that runs on top of physical bare metal hardware. **(default)**
-    - [ ] Bare metal: A bare metal compute instance gives you dedicated physical server access for highest performance and strong isolation.
-  - Shape series:
-    - [ ] AMD: Flexible OCPU count. Current generation AMD processors. **(default)**
-    - [ ] Intel: Flexible OCPU count. Current generation Intel processors.
-    - [x] Ampere: Arm-based processor.
-    - [ ] Specialty and previous generation: Always Free, Dense I/O, GPU, HPC, Generic, and earlier generation AMD and Intel standard shapes.
-  - Shape Name:
-    - [x] VM.Standard.A1.Flex (Always Free-eligible) | OCPU: 1 (80 max) | Memory (GB): 6 (512 max)
-    - [ ] VM.Standard.A2.Flex | OCPU: 1 (78 max) | Memory (GB): 6 (946 max)
-  - Network bandwidth (Gbps): 1 Gbps **(default)**
-  - Maximum VNICs: 2 **(default)**
-  - Number of OCPUs: 1 **(default)**
-  - Amount of memory (GB): 16 **(default)**
+  - Shape: Ampere
+    - Instance Type:
+      - [x] Virtual machine: A virtual machine is an independent computing environment that runs on top of physical bare metal hardware. **(default)**
+      - [ ] Bare metal: A bare metal compute instance gives you dedicated physical server access for highest performance and strong isolation.
+    - Shape series:
+      - [ ] AMD: Flexible OCPU count. Current generation AMD processors. **(default)**
+      - [ ] Intel: Flexible OCPU count. Current generation Intel processors.
+      - [x] Ampere: Arm-based processor.
+      - [ ] Specialty and previous generation: Always Free, Dense I/O, GPU, HPC, Generic, and earlier generation AMD and Intel standard shapes.
+    - Shape Name:
+      - [x] VM.Standard.A1.Flex (Always Free-eligible) | OCPU: 1 (80 max) | Memory (GB): 6 (512 max)
+      - [ ] VM.Standard.A2.Flex | OCPU: 1 (78 max) | Memory (GB): 6 (946 max)
+    - Network bandwidth (Gbps): 1 Gbps **(default)**
+    - Maximum VNICs: 2 **(default)**
+    - Number of OCPUs: 2
+    - Amount of memory (GB): 24
 - Shape Build:
   - Virtual machine
-  - 1 core OCPU
-  - 16 GB memory
-  - 1 Gbps network bandwidth
+  - 2 core OCPU
+  - 24 GB memory
+  - 2 Gbps network bandwidth
 - Advanced options:
   - Management
     - Instance Metadata service:
@@ -94,7 +145,7 @@
     - [ ] Block Volume Management **(default)**
     - [ ] Bastion **(default)**
 
-#### 2. Security
+##### 2. Security
 
 - Security:
   - [ ] Shielded instance **(default)**
@@ -108,7 +159,7 @@
 - Measured Boot: Disabled **(default)**
 - Trusted Platform Module: Disabled **(default)**
 
-#### 3. Networking
+##### 3. Networking
 
 - Primary VNIC
   - VNIC name: VNIC-20251229-minecraft
@@ -151,7 +202,7 @@
   - [ ] Paste public keys
   - [ ] No SSH keys
 
-#### 4. Storage
+##### 4. Storage
 
 - Boot volume
   - [ ] Specify a custom boot volume size and performance setting **(default)**
@@ -159,13 +210,13 @@
   - [ ] Encrypt this volume with a key that you manage **(default)**
 - Block volumes: None **(default)**
 
-#### Save as a Stack: candonga
+##### Save as a Stack: candonga
 
 - Name: Minecraft
 - Compartment: ocid1.tenancy.oc1..aaaaaaaa3vzjiz7354idew4yjfbcjqah3bywaz2p2hrhvchdfpcfaw5qkmjq
 - Terraform Version: 1.5.x
 
-### Configurando Ingress Rules
+##### Configurando Ingress Rules
 
 - Instances>Networking>subnet>security>Default Security List>Security Rules>Add Ingress Rules
   - Ingress Rule 1
@@ -191,19 +242,46 @@
 
 - Mova as chaves para a pasta .\20251227\
 - Mova a chave para um local seguro:
-  - `Move-Item .\20251227\ssh-key-2025-12-29.key $Env:USERPROFILE\.ssh\oracle.key`
+  - `$originalPath="B:\Pastas do sistema\Downloads\ssh-key-2026-01-03.key"; $newPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Move-Item $originalPath $newPath -Force` <!-- JV -->
+  - **ou**
+  - `$originalPath="$Env:USERPROFILE\Downloads\ssh-key-2026-01-03.key"; $newPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Copy-Item $originalPath $newPath -Force`
 - Altere as permissões da chave privada:
-  - `icacls $Env:USERPROFILE\.ssh\oracle.key /inheritance:r`
-  - `icacls $Env:USERPROFILE\.ssh\oracle.key /grant:r "$($Env:USERNAME):R"`
+  - `icacls $newPath /inheritance:r /grant:r "$($Env:USERNAME):R"`
 - Comando para acessar a instância via SSH:
+  - `$publicIP="146.235.55.234"`
   - `ssh -i "caminho/para/sua/private_key.pem" opc@IP_DA_SUA_INSTANCIA`
-  - `ssh -i .\20251227\ssh-key-2025-12-29.key opc@137.131.129.51`
-  - `ssh -i $Env:USERPROFILE\.ssh\oracle.key opc@137.131.129.51`
+  - `ssh -i .\20251227\ssh-key-2025-12-29.key opc@$publicIP`
+  - `ssh -i $Env:USERPROFILE\.ssh\MyOracleKey opc@$publicIP`
+  - Para Oracle Linux: `ssh -i $newPath opc@$publicIP`
+  - Para Ubuntu: `ssh -i $newPath ubuntu@$publicIP`
 - **Máquina acessada**
 
 ## Ligando o Servidor Minecraft na Instância
 
-- Instalando o git na Oracle Linux 9:
-  - `sudo dnf install git -y`
-- clone do repositório
-  - `git clone https://github.com/jvfd3/FastFreeMinecraftServer.git`
+- Dentro do Ubuntu
+  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER && newgrp docker; docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up -d;`
+  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER && newgrp docker; docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up -d;`
+
+---
+
+cloud-init script completo:
+
+```bash
+apt install -y git docker.io curl;
+git clone https://github.com/jvfd3/FastFreeMinecraftServer.git;
+$DOCKER_COMPOSE_URL="https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64";
+mkdir -p ~/.docker/cli-plugins &&
+curl -SL $DOCKER_COMPOSE_URL -o ~/.docker/cli-plugins/docker-compose &&
+chmod +x ~/.docker/cli-plugins/docker-compose;
+sudo usermod -aG docker $USER &&
+# newgrp docker;
+FastFreeMinecraftServer/Files/current/scripts/cloud_init.sh --CF_API_KEY="$$2a$10$$<API_KEY_HERE>";
+```
+
+inside_init
+
+```bash
+$ENV_PATH="FastFreeMinecraftServer/Files/current/.env";
+echo $CF_API_KEY > $ENV_PATH;
+docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up -d;
+```
