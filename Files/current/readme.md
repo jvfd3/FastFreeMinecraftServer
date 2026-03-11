@@ -242,25 +242,42 @@
 
 - Mova as chaves para a pasta .\20251227\
 - Mova a chave para um local seguro:
-  - `$originalPath="B:\Pastas do sistema\Downloads\ssh-key-2026-01-03.key"; $newPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Move-Item $originalPath $newPath -Force` <!-- JV -->
+  - `$originalPath="B:\Pastas do sistema\Downloads\ssh-key-2026-01-03.key"; $keyPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Move-Item $originalPath $keyPath -Force` <!-- JV -->
   - **ou**
-  - `$originalPath="$Env:USERPROFILE\Downloads\ssh-key-2026-01-03.key"; $newPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Copy-Item $originalPath $newPath -Force`
+  - `$originalPath="$Env:USERPROFILE\Downloads\ssh-key-2026-01-03.key"; $keyPath="$Env:USERPROFILE\.ssh\MyOracleKey"; Copy-Item $originalPath $keyPath -Force`
 - Altere as permissões da chave privada:
-  - `icacls $newPath /inheritance:r /grant:r "$($Env:USERNAME):R"`
+  - `icacls $keyPath /inheritance:r /grant:r "$($Env:USERNAME):R"`
 - Comando para acessar a instância via SSH:
-  - `$publicIP="146.235.55.234"`
+  - `$publicIP="64.181.183.70"`
   - `ssh -i "caminho/para/sua/private_key.pem" opc@IP_DA_SUA_INSTANCIA`
   - `ssh -i .\20251227\ssh-key-2025-12-29.key opc@$publicIP`
   - `ssh -i $Env:USERPROFILE\.ssh\MyOracleKey opc@$publicIP`
-  - Para Oracle Linux: `ssh -i $newPath opc@$publicIP`
-  - Para Ubuntu: `ssh -i $newPath ubuntu@$publicIP`
+  - Para Oracle Linux: `ssh -i $keyPath opc@$publicIP`
+  - Para Ubuntu: `ssh -i $keyPath ubuntu@$publicIP`
 - **Máquina acessada**
+
+ssh -i C:\Users\joaov\.ssh\MyOracleKey ubuntu@64.181.183.70
+
+### Copiar arquivo do remoto
+
+```bash
+scp -i C:/Users/joaov/.ssh/MyOracleKey -r ubuntu@64.181.183.70:minecraft/serverfiles/crash-reports/ B:/GitHub/Random/FastFreeMinecraftServer/temp/
+```
+
 
 ## Ligando o Servidor Minecraft na Instância
 
 - Dentro do Ubuntu
-  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER && newgrp docker; docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up -d;`
-  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER && newgrp docker; docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up -d;`
+  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER && newgrp docker;`
+  - Aqui ele dá uma travada. Não sei o que precisaria fazer.
+  - `docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up;`
+
+  SEM O NEWGRP;
+  - `sudo apt update; sudo apt install -y docker.io git; git clone https://github.com/jvfd3/FastFreeMinecraftServer.git; echo 'CF_API_KEY=$$2a$10$$XYdetNISecgcwijJiUl2MOtEACI0s2oVo4bzV/j7xUEgzm8Gg9yce' > FastFreeMinecraftServer/Files/current/.env; mkdir -p ~/.docker/cli-plugins && curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-aarch64 -o ~/.docker/cli-plugins/docker-compose && chmod +x ~/.docker/cli-plugins/docker-compose; sudo usermod -aG docker $USER; docker compose -f FastFreeMinecraftServer/Files/current/docker-compose.yml up;`
+
+---
+
+- Testar sem update para acelerar
 
 ---
 
